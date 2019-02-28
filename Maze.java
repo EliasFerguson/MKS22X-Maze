@@ -30,6 +30,12 @@ public class Maze{
         System.out.println(temp.toString());
         int r = temp.size();
         int c = temp.get(0).length();
+        maze = new char[r][c];
+        for (int row = 0; row < r; row++) {
+          for (int col = 0; col < c; col++) {
+            maze[row][col] = temp.get(row).charAt(col);
+          }
+        }
     }
     /*Return the string that represents the maze.
     It should look like the text file with some characters replaced.
