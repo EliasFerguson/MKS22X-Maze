@@ -27,7 +27,6 @@ public class Maze{
           String line = text.nextLine();
           temp.add(line);
         }
-        System.out.println(temp.toString());
         int r = temp.size();
         int c = temp.get(0).length();
         maze = new char[r][c];
@@ -41,7 +40,14 @@ public class Maze{
     It should look like the text file with some characters replaced.
     */
     public String toString(){
-          return "WRITE THIS METHOD";
+      String output = "";
+      for (char[] elem:maze) {
+        for (char c: elem) {
+          output += c;
+        }
+        output += '\n';
+      }
+      return output;
     }
 
     private void wait(int millis){
