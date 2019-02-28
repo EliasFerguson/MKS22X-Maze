@@ -21,11 +21,21 @@ public class Maze{
     public Maze(String filename) throws FileNotFoundException{
         File in = new File(filename);
         animate = false;
+        List<String> temp = new ArrayList<String>();
         Scanner text = new Scanner(in);
-        while (text.hasNext()) {
+        while (text.hasNextLine()) {
           String line = text.nextLine();
-          System.out.println(line);
+          temp.add(line);
         }
+        System.out.println(temp.toString());
+        int r = temp.size();
+        int c = temp.get(0).length();
+    }
+    /*Return the string that represents the maze.
+    It should look like the text file with some characters replaced.
+    */
+    public String toString(){
+          return "WRITE THIS METHOD";
     }
 
     private void wait(int millis){
@@ -57,6 +67,7 @@ public class Maze{
 
             //and start solving at the location of the s.
             //return solve(???,???);
+            return -1;
     }
 
     /*
