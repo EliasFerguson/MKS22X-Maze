@@ -115,6 +115,10 @@ public class Maze{
       }
       return countAt;
     }
+    private boolean canMove(int r, int c) {
+      if (maze[r][c] != '.' || maze[r][c] != '#') return true;
+      return false;
+    }
     private int solve(int row, int col){ //you can add more parameters since this is private
         //automatic animation! You are welcome.
         if(animate){
