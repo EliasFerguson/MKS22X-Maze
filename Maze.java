@@ -35,6 +35,7 @@ public class Maze{
             maze[row][col] = temp.get(row).charAt(col);
           }
         }
+        if (!validFile()) throw new IllegalStateException("The maze must have only one end and one start.");
     }
     /*Return the string that represents the maze.
     It should look like the text file with some characters replaced.
