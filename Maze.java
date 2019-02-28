@@ -39,6 +39,17 @@ public class Maze{
     /*Return the string that represents the maze.
     It should look like the text file with some characters replaced.
     */
+    private boolean validFile() {
+      int eCount = 0;
+      int sCount = 0;
+      for (char[] elem:maze) {
+        for (char c:elem) {
+          if (c == 'E') eCount++;
+          if (c == 'S') sCount++;
+        }
+      }
+      return eCount == 1 && sCount == 1;
+    }
     public String toString(){
       String output = "";
       for (char[] elem:maze) {
@@ -49,7 +60,6 @@ public class Maze{
       }
       return output;
     }
-
     private void wait(int millis){
          try {
              Thread.sleep(millis);
