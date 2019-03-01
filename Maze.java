@@ -106,7 +106,7 @@ public class Maze{
         All visited spots that were not part of the solution are changed to '.'
         All visited spots that are part of the solution are changed to '@'
     */
-    private int countAt() {
+    /* private int countAt() {
       int countAt = 0;
       for (char[] elem:maze) {
         for (char c:elem) {
@@ -115,6 +115,7 @@ public class Maze{
       }
       return countAt;
     }
+    */
     private int[] findStart() {
       for (int i = 0; i < maze.length; i++) {
         for (int i2 = 0; i2 < maze[0].length; i2++) {
@@ -139,8 +140,8 @@ public class Maze{
         if (maze[row][col] == 'E') return 1;
         maze[row][col] = '@';
         for (int i = 0; i < moveset.length; i += 2) {
-          if (move(row + moveset[i], col + moveset[i + 1])) {
-            solve(row + moveset[i], col + moveset[i + 1]);
+          if (solve(row + moveset[i], col + moveset[i + 1]) != -1) {
+            return 1 + solve(row + moveset[i], col + moveset[i + 1]);
           }
         }
         maze[row][col] = '.';
