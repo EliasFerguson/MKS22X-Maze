@@ -116,9 +116,9 @@ public class Maze{
       }
       return countAt;
     }
+
     private boolean move(int r, int c) {
       if (maze[r][c] != '.' && maze[r][c] != '#') {
-        maze[r][c] = '@';
         return true;
       }
       return false;
@@ -137,6 +137,8 @@ public class Maze{
             solve(row + moveset[i], col + moveset[i + 1]);
           }
         }
+        maze[row][col] = '.';
+
         //COMPLETE SOLVE
         return -1; //so it compiles
     }
