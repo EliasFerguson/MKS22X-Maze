@@ -136,7 +136,7 @@ public class Maze{
             System.out.println(this);
             wait(20);
         }
-        if (maze[row][col] == 'E') return countAt();
+        if (maze[row][col] == 'E') return 1;
         maze[row][col] = '@';
         for (int i = 0; i < moveset.length; i += 2) {
           if (move(row + moveset[i], col + moveset[i + 1])) {
