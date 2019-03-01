@@ -116,7 +116,14 @@ public class Maze{
       }
       return countAt;
     }
-
+    private int[] findStart() {
+      for (int i = 0; i < maze.length; i++) {
+        for (int i2 = 0; i2 < maze[0].length; i2++) {
+          if (maze[i][i2] == 'S') return new int[] {i, i2};
+        }
+      }
+      return new int[0];
+    }
     private boolean move(int r, int c) {
       if (maze[r][c] != '.' && maze[r][c] != '#') {
         return true;
