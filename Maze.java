@@ -4,7 +4,7 @@ public class Maze{
 
     private char[][]maze;
     private boolean animate;//false by default
-
+    private int[][] moveset;
     /*Constructor loads a maze text file, and sets animate to false by default.
 
       1. The file contains a rectangular ascii maze, made with the following 4 characters:
@@ -115,8 +115,11 @@ public class Maze{
       }
       return countAt;
     }
-    private boolean canMove(int r, int c) {
-      if (maze[r][c] != '.' || maze[r][c] != '#') return true;
+    private boolean move(int r, int c) {
+      if (maze[r][c] != '.' && maze[r][c] != '#') {
+        maze[r][c] = '@';
+        return true;
+      }
       return false;
     }
     private int solve(int row, int col){ //you can add more parameters since this is private
