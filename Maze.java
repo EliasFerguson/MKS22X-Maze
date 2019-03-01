@@ -4,7 +4,7 @@ public class Maze{
 
     private char[][]maze;
     private boolean animate;//false by default
-    private int[][] moveset;
+    private int[] moveset;
     /*Constructor loads a maze text file, and sets animate to false by default.
 
       1. The file contains a rectangular ascii maze, made with the following 4 characters:
@@ -27,6 +27,7 @@ public class Maze{
           String line = text.nextLine();
           temp.add(line);
         }
+        moveset = new int[] {1, 0, 0, 1, -1, 0, 0, -1};
         int r = temp.size();
         int c = temp.get(0).length();
         maze = new char[r][c];
@@ -130,7 +131,12 @@ public class Maze{
             wait(20);
         }
         if (maze[row][col] == 'E') return countAt();
-
+        maze[row][col] = '@';
+        for (int i = 0; i < moveset.length; i += 2) {
+          if (move(row + moveset[i], col + moveset[i + 1])) {
+            solve(row + moveset[i], col + moveset[i + 1]);
+          }
+        }
         //COMPLETE SOLVE
         return -1; //so it compiles
     }
