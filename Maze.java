@@ -86,12 +86,11 @@ public class Maze{
     */
     public int solve(){
             //find the location of the S.
-
+      int[] start = findStart();
             //erase the S
-
+      return solve(start[0], start[1]);
             //and start solving at the location of the s.
             //return solve(???,???);
-            return -1;
     }
 
     /*
