@@ -7,12 +7,12 @@ public class Driver{
         Maze f;
         f = new Maze(filename);//true animates the maze.
 
-        f.setAnimate(true);
+        f.setAnimate(false);
         f.solve();
         System.out.println(f);
       }catch(FileNotFoundException e){
         System.out.println("Invalid filename: "+filename);
-      } 
+      }
       /* try {
         Maze test = new Maze("test.txt");
         System.out.println(test.toString());
