@@ -141,16 +141,13 @@ public class Maze{
           for (int i = 0; i < moveset.length; i += 2) {
             int newRow = row + moveset[i];
             int newCol = col + moveset[i + 1];
-            if (maze[newRow][newCol] == 'E') return 1;
-            else if (maze[newRow][newCol] == ' ') {
-              if (solve(newRow, newCol) != -1) {
-                return 1 + solve(newRow, newCol);
-              }
+            if (maze[newRow][newCol] == ' ') {
+              int solution = solve(newRow, newCol);
+              if (solution != -1) return solution + 1;
             }
+            else if (maze[newRow][newCol] == 'E') return 1;
           }
-          if (maze[row][col] != '#') {
             maze[row][col] = '.';
-          }
 
           //COMPLETE SOLVE
           return -1; //so it compiles
