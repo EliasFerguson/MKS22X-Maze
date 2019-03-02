@@ -137,21 +137,30 @@ public class Maze{
             System.out.println(this);
             wait(100);
         }
-        if (maze[row][col] == 'E') return 1;
+        if (maze[row][col] == 'E') {
+          System.out.println(this);
+          return 1;
+        }
         else if (maze[row][col] == 'S' || maze[row][col] == ' ') {
           maze[row][col] = '@';
           for (int i = 0; i < moveset.length; i += 2) {
-            if (solve(row + moveset[i], col + moveset[i + 1]) != -1) {
-              return 1 + solve(row + moveset[i], col + moveset[i + 1]);
+            int newRow = row + moveset[i];
+            int newCol = col + moveset[i + 1];
+            if (maze[newRow][newCol] == 'E') return 1;
+            if (solve(newRow, newCol) != -1) {
+              return 1 + solve(newRow, newCol);
             }
+          }
         }
-      }
-        if (maze[row][col] != '#') {
-          maze[row][col] = '.';
+        else {
+          if (maze[row][col] != '#') {
+            maze[row][col] = '.';
+          }
         }
 
-        //COMPLETE SOLVE
-        return -1; //so it compiles
+          //COMPLETE SOLVE
+          return -1; //so it compiles
+
     }
 
 
