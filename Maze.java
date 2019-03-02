@@ -135,15 +135,15 @@ public class Maze{
         if(animate){
             clearTerminal();
             System.out.println(this);
-            wait(20);
+            wait(100);
         }
         if (maze[row][col] == 'E') return 1;
         else if (maze[row][col] == 'S' || maze[row][col] == ' ') {
           maze[row][col] = '@';
           for (int i = 0; i < moveset.length; i += 2) {
-            //if (solve(row + moveset[i], col + moveset[i + 1]) != -1) {
+            if (solve(row + moveset[i], col + moveset[i + 1]) != -1) {
               return 1 + solve(row + moveset[i], col + moveset[i + 1]);
-            //}
+            }
         }
       }
         if (maze[row][col] != '#') {
