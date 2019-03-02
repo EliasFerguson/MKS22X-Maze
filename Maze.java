@@ -141,12 +141,14 @@ public class Maze{
         else if (maze[row][col] == 'S' || maze[row][col] == ' ') {
           maze[row][col] = '@';
           for (int i = 0; i < moveset.length; i += 2) {
-            if (solve(row + moveset[i], col + moveset[i + 1]) != -1) {
+            //if (solve(row + moveset[i], col + moveset[i + 1]) != -1) {
               return 1 + solve(row + moveset[i], col + moveset[i + 1]);
-            }
+            //}
         }
       }
-        maze[row][col] = '.';
+        if (maze[row][col] != '#') {
+          maze[row][col] = '.';
+        }
 
         //COMPLETE SOLVE
         return -1; //so it compiles
