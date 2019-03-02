@@ -135,7 +135,7 @@ public class Maze{
         if(animate){
             clearTerminal();
             System.out.println(this);
-            wait(100);
+            wait(20);
         }
           maze[row][col] = '@';
           for (int i = 0; i < moveset.length; i += 2) {
