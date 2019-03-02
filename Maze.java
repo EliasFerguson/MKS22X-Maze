@@ -142,8 +142,10 @@ public class Maze{
             int newRow = row + moveset[i];
             int newCol = col + moveset[i + 1];
             if (maze[newRow][newCol] == 'E') return 1;
-            if (solve(newRow, newCol) != -1) {
-              return 1 + solve(newRow, newCol);
+            else if (maze[newRow][newCol] == ' ') {
+              if (solve(newRow, newCol) != -1) {
+                return 1 + solve(newRow, newCol);
+              }
             }
           }
           if (maze[row][col] != '#') {
