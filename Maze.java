@@ -137,11 +137,6 @@ public class Maze{
             System.out.println(this);
             wait(100);
         }
-        if (maze[row][col] == 'E') {
-          System.out.println(this);
-          return 1;
-        }
-        else if (maze[row][col] == 'S' || maze[row][col] == ' ') {
           maze[row][col] = '@';
           for (int i = 0; i < moveset.length; i += 2) {
             int newRow = row + moveset[i];
@@ -151,12 +146,9 @@ public class Maze{
               return 1 + solve(newRow, newCol);
             }
           }
-        }
-        else {
           if (maze[row][col] != '#') {
             maze[row][col] = '.';
           }
-        }
 
           //COMPLETE SOLVE
           return -1; //so it compiles
