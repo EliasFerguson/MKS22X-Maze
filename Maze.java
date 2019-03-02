@@ -137,9 +137,9 @@ public class Maze{
             System.out.println(this);
             wait(20);
         }
-        if (maze[row][col] == 'E') return 1;
         maze[row][col] = '@';
         for (int i = 0; i < moveset.length; i += 2) {
+          if (maze[row + moveset[i]][col + moveset[i + 1]] == 'E') return 1;
           if (solve(row + moveset[i], col + moveset[i + 1]) != -1) {
             return 1 + solve(row + moveset[i], col + moveset[i + 1]);
           }
